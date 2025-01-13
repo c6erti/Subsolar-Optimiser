@@ -1,4 +1,4 @@
-:: Made by c6erti
+:: Made by c6erti, polic, cupid 
 :: Discord:https://discord.gg/5qEWr6cTZy
 :: Code Snippet Credit: C6erti
  
