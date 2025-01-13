@@ -16,7 +16,7 @@ Welcome to **Subsolar PC Optimizer**, the ultimate tool for enhancing your compu
 
 To get started with Subsolar PC Optimizer, follow these steps:
 
-1. **Join Our Discord**: [Click here to join the Subsolar Discord server](https://discord.gg/6bv3P6ur).
+1. **Join Our Discord**: [Click here to join the Subsolar Discord server](https://discord.gg/u6XAwX8x).
 2. **Follow Instructions**: Once you're in the Discord, follow the instructions provided in the **#getting-started** channel.
 3. **Ask for Help**: If you encounter any issues or need assistance, head over to the **#pc-help** channel and our community will be happy to assist you.
 
