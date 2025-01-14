@@ -1,5 +1,5 @@
-:: Made by c6erti, polic, cupid 
-:: Discord:https://discord.gg/5qEWr6cTZy
+:: Made by c6erti
+:: Discord: https://discord.gg/kupTEtSs
 :: Code Snippet Credit: C6erti
  
 @echo off
@@ -110,11 +110,11 @@ echo.
 echo.                                           
 echo.                                             
 echo.                                      ███████╗██╗   ██╗██████╗     ███████╗ ██████╗ ██╗      █████╗ ██████╗ 
-                                           ██╔════╝██║   ██║██╔══██╗    ██╔════╝██╔═══██╗██║     ██╔══██╗██╔══██╗
-                                           ███████╗██║   ██║██████╔╝    ███████╗██║   ██║██║     ███████║██████╔╝
-                                           ╚════██║██║   ██║██╔══██╗    ╚════██║██║   ██║██║     ██╔══██║██╔══██╗
-                                           ███████║╚██████╔╝██║  ██║    ███████║╚██████╔╝███████╗██║  ██║██║  ██║
-                                           ╚══════╝ ╚═════╝ ╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+echo.                                      ██╔════╝██║   ██║██╔══██╗    ██╔════╝██╔═══██╗██║     ██╔══██╗██╔══██╗
+echo.                                      ███████╗██║   ██║██████╔╝    ███████╗██║   ██║██║     ███████║██████╔╝
+echo.                                      ╚════██║██║   ██║██╔══██╗    ╚════██║██║   ██║██║     ██╔══██║██╔══██╗
+echo.                                      ███████║╚██████╔╝█████║ ╝    ███████║╚██████╔╝███████╗██║  ██║██║  ██║
+echo.                                        ╚══════╝ ╚═════╝ ╚═╝  ╚═╝    ╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
 echo.                       
 echo. 
 echo.                                  ╔════════════════════════════════════════════════════╗
@@ -1677,4 +1677,1423 @@ if /i "%choice%"=="Y" (
     powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
     timeout 2 > nul
     goto :InstallOpen
+)
+
+:SearchRemover
+cls
+color D
+echo (c6erti) Removing Search...
+set "SearchFileToDelete1=C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\SearchHost.exe"
+set "SearchFileToDelete2=C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe"
+set "SearchFileToDelete3=C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe"
+set "SearchFileToDelete4=C:\Windows\System32\taskhostw.exe"
+if exist "%SearchFileToDelete1%" (
+    echo.
+    echo Taking ownership of the file.
+    takeown /F "%SearchFileToDelete1%" >nul 2>&1
+    echo Adjusting permissions.
+    icacls "%SearchFileToDelete1%" /grant administrators:F >nul 2>&1
+    echo Removing SearchHost.exe.
+    del "%SearchFileToDelete1%" /f /q
+    echo File deleted successfully.
+) else (
+    echo File not found: %SearchFileToDelete1%.
+)
+if exist "%SearchFileToDelete2%" (
+    echo.
+    echo Taking ownership of the file.
+    takeown /F "%SearchFileToDelete2%" >nul 2>&1
+    echo Adjusting permissions.
+    icacls "%SearchFileToDelete2%" /grant administrators:F >nul 2>&1
+    echo Removing StartMenuExperienceHost.exe.
+    del "%SearchFileToDelete2%" /f /q
+    echo File deleted successfully.
+) else (
+    echo File not found: %SearchFileToDelete2%.
+)
+if exist "%SearchFileToDelete3%" (
+    echo.
+    echo Taking ownership of the file.
+    takeown /F "%SearchFileToDelete3%" >nul 2>&1
+    echo Adjusting permissions.
+    icacls "%SearchFileToDelete3%" /grant administrators:F >nul 2>&1
+    echo Removing ShellExperienceHost.exe.
+    del "%SearchFileToDelete3%" /f /q
+    echo File deleted successfully.
+) else (
+    echo File not found: %SearchFileToDelete3%.
+)
+if exist "%SearchFileToDelete4%" (
+    echo.
+    echo Taking ownership of the file.
+    takeown /F "%SearchFileToDelete4%" >nul 2>&1
+    echo Adjusting permissions.
+    icacls "%SearchFileToDelete4%" /grant administrators:F >nul 2>&1
+    echo Removing taskhostw.exe.
+    del "%SearchFileToDelete4%" /f /q
+    echo File deleted successfully.
+) else (
+    echo File not found: %SearchFileToDelete4%.
+)
+timeout 1 > nul
+
+cls
+color 9
+echo (c6erti) Installing Alternative Search/Open Shell Menu...
+chcp 437 >nul
+echo.
+powershell -Command "Write-Host 'Needed if you''d like to Search things!' -ForegroundColor White -BackgroundColor Red" 
+set "fileURL=https://github.com/Open-Shell/Open-Shell-Menu/releases/download/v4.4.191/OpenShellSetup_4_4_191.exe"
+set "fileName=OpenShellSetup_4_4_191.exe"
+set "fileURL2=https://github.com/QuakedK/Oneclick/raw/refs/heads/main/Downloads/OpenShellTheme.xml"
+set "fileName2=OpenShellTheme.xml"
+mkdir "C:\Oneclick Tools\Open Shell" >nul 2>&1
+set "downloadsFolder=C:\Oneclick Tools\Open Shell"
+chcp 65001 >nul 2>&1
+echo.
+echo ╔═════════════════════════════╗
+echo ║                             ║
+echo ║    Downloading resources    ║
+echo ║                             ║
+echo ╚═════════════════════════════╝
+curl -s -L "%fileURL%" -o "%downloadsFolder%\%fileName%"
+curl -s -L "%fileURL2%" -o "%downloadsFolder%\%fileName2%"
+if exist "%downloadsFolder%\%fileName%" (
+    echo Open Shell Menu and config file installed!
+    echo.
+    echo Starting Open Shell Menu...
+    timeout 1 > nul
+    cls
+    start "" "%downloadsFolder%\%fileName%"
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Do not skip if you want to Search things' -ForegroundColor White -BackgroundColor Red" 
+    echo.
+    echo Click "Next", Then "I accept", then "Next" again.
+    echo Click on the "Arrow" next the left of "Classic Explorer" then click the "Red X"
+    echo Click on the "Arrow" next the left of "Open-Shell Update" then click the "Red X"
+    echo Then click "Next" again and "install" the "Finsh"
+    echo.
+    echo Now right click your "windows icon" then click "Settings"
+    echo Then click "Backup" and "Load from XML File" 
+    echo Now Navigate to your "C drive or C:\Oneclick Tools\Open Shell" and Select "OpenShellTheme.xml" the click "OK"
+    pause
+) else (
+    echo Open Shell Menu download failed.
+    echo Skipping!
+    timeout 1 > nul
+) 
+
+:SkipSearchRemover
+cls
+color D
+echo (c6erti) Disabling all startup apps...
+echo --------------------------------------
+for /f "tokens=2 delims==" %%I in ('wmic startup get caption /format:list') do (
+    setlocal enabledelayedexpansion
+    set "app=%%I"
+    set "app=!app:~0,-1!"
+    echo Disabling !app!
+    
+    :: Check if app exists in HKEY_CURRENT_USER
+    reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "!app!" >nul 2>&1
+    if !errorlevel! equ 0 (
+        echo Disabling !app! in HKEY_CURRENT_USER >nul 2>&1
+        reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "!app!" /t REG_BINARY /d 0300000000000000 /f >nul 2>&1
+    ) else (
+        echo !app! not found in HKEY_CURRENT_USER, skipping... >nul 2>&1
+    )
+    
+    :: Check if app exists in HKEY_LOCAL_MACHINE
+    reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "!app!" >nul 2>&1
+    if !errorlevel! equ 0 (
+        echo Disabling !app! in HKEY_LOCAL_MACHINE >nul 2>&1
+        reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "!app!" /t REG_BINARY /d 0300000000000000 /f >nul 2>&1
+    ) else (
+        echo !app! not found in HKEY_LOCAL_MACHINE, skipping... >nul 2>&1
+    )
+    
+    endlocal
+)
+echo All startup programs disabled.
+timeout 1 > nul
+
+cls
+color 9
+echo (c6erti) Auto setting Graphics Preferences, Priority and FSO.... 
+setlocal enabledelayedexpansion
+
+:: Finding Roblox and Discord path.
+for /f "delims=" %%i in ('dir /b /s "%USERPROFILE%\AppData\Local\Roblox\Versions\RobloxPlayerBeta.exe" 2^>nul') do set "robloxPath=%%i"
+for /f "delims=" %%i in ('dir /b /s "%USERPROFILE%\AppData\Local\Discord\Discord.exe" 2^>nul') do set "discordPath=%%i"
+
+:: Games Paths.
+set "games[0]=C:\Program Files\Epic Games\Fortnite\FortniteGame\Binaries\Win64\FortniteClient-Win64-Shipping.exe"
+set "games[1]=%robloxPath%"
+set "games[2]=%USERPROFILE%\AppData\Local\osu!\osu!.exe"
+set "games[3]=C:\Riot Games\VALORANT\live\VALORANT.exe"
+set "games[4]=C:\Program Files\Epic Games\VALORANT\VALORANT.exe"
+set "games[5]=C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\GTA5.exe"
+set "games[6]=C:\Program Files\Epic Games\GTAV\GTAV.exe"
+set "games[7]=C:\Program Files\Rockstar Games\Grand Theft Auto V\GTA5.exe"
+set "games[8]=C:\Program Files\Epic Games\Apex\Apex.exe"
+set "games[9]=C:\Program Files (x86)\Steam\steamapps\common\Apex Legends\Apex Legends.exe"
+set "games[10]=C:\Program Files (x86)\Origin Games\Apex\Apex.exe"
+set "games[11]=C:\Program Files\EA Games\Apex Legends\Apex.exe"
+set "games[12]=C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike 2\cs2.exe"
+set "games[13]=C:\Program Files (x86)\Battle.net\Overwatch 2\Overwatch.exe"
+set "games[14]=C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\games\Tom Clancy's Rainbow Six Siege\r6.exe"
+set "games[15]=C:\Riot Games\League of Legends\LeagueClient.exe"
+set "games[16]=C:\Program Files (x86)\Steam\steamapps\common\Dead by Daylight\DeadByDaylight.exe"
+set "games[17]=C:\Program Files (x86)\Call of Duty\Modern Warfare\ModernWarfare.exe"
+set "games[18]=C:\Program Files (x86)\Call of Duty\Modern Warfare II\ModernWarfareII.exe"
+set "games[19]=C:\Program Files (x86)\Call of Duty\Modern Warfare III\ModernWarfareIII.exe"
+set "games[20]=C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Black Ops\BlackOps.exe"
+set "games[21]=C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Black Ops II\BlackOps2.exe"
+set "games[22]=C:\Program Files (x86)\Steam\steamapps\common\Call of Duty Black Ops III\BlackOps3.exe"
+set "games[23]=C:\Program Files (x86)\Steam\steamapps\common\Elden Ring\EldenRing.exe"
+set "games[24]=C:\Program Files\Epic Games\RocketLeague\RocketLeague.exe"
+set "games[25]=C:\Program Files\Genshin Impact\Genshin Impact Game\GenshinImpact.exe"
+set "games[26]=C:\Program Files\LatencyMon\LatMon.exe"
+set "games[27]=C:\Program Files\Maxon\Cinebench R23\Cinebench.exe"
+set "games[28]=C:\Program Files\Maxon\Cinebench R24\Cinebench.exe"
+set "games[29]=C:\Program Files\Shotcut\shotcut.exe"
+set "games[30]=C:\Program Files\3DMark\3DMark.exe"
+
+:: Apps Paths. 
+set "apps[0]=%discordPath%"
+set "apps[1]=%USERPROFILE%\AppData\Roaming\Spotify\Spotify.exe"
+set "apps[2]=C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe"
+set "apps[3]=C:\Program Files\obs-studio\bin\64bit\obs64.exe"
+set "apps[4]=C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win64\EpicGamesLauncher.exe"
+set "apps[5]=C:\Program Files (x86)\Epic Games\Launcher\Engine\Binaries\Win64\EpicWebHelper.exe"
+set "apps[6]=C:\Program Files (x86)\Epic Games\Launcher\Engine\Binaries\Win64\CrashReportClient.exe"
+set "apps[7]=C:\Program Files (x86)\Steam\Steam.exe"
+set "apps[8]=C:\Program Files (x86)\Steam\bin\cef\cef.win7x64\steamwebhelper.exe"
+set "apps[9]=C:\Program Files (x86)\Battle.net\Battle.net.exe"
+set "apps[10]=C:\Program Files\Core Temp\Core Temp.exe"
+set "apps[11]=C:\Program Files (x86)\CapFrameX\CapFrameX.exe"
+set "apps[12]=C:\Program Files\CPUID\HWMonitor\HWMonitor.exe"
+set "apps[13]=C:\Program Files\VideoLAN\VLC\vlc.exe"
+set "apps[14]=C:\Program Files\Google\Chrome\Application\chrome.exe"
+set "apps[15]=C:\Program Files\Open-Shell\StartMenu.exe"
+set "apps[16]=C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+set "apps[17]=%USERPROFILE%\AppData\Local\Programs\Opera GX\launcher.exe"
+set "apps[18]=C:\Windows\System32\dwm.exe"
+set "apps[19]=C:\Windows\explorer.exe"
+
+:: Registry Keys
+set regKeyGP=HKEY_CURRENT_USER\SOFTWARE\Microsoft\DirectX\UserGpuPreferences
+set regKeyPR=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options
+set regKeyFO=HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers
+
+:: Set Games to High Performance and Hgh Priority.
+for /L %%i in (0, 1, 30) do (
+    set "currentPath=!games[%%i]!"
+    if exist "!currentPath!" (
+        for %%a in (!currentPath!) do set "exeName=%%~nxa"
+        echo Adding !exeName! to High Performance Mode, High Priority and FSO.
+        reg add "%regKeyGP%" /v "!currentPath!" /t REG_SZ /d "GpuPreference=2" /f >nul 2>&1
+        reg add "%regKeyPR%\!exeName!\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "3" /f >nul 2>&1
+        reg add "%regKeyFO%" /v "!currentPath!" /t REG_SZ /d "~ DISABLEDXMAXIMIZEDWINDOWEDMODE HIGHDPIAWARE" /f >nul 2>&1
+    ) else (
+        echo !currentPath! does not exist >nul 2>&1
+    )
+)
+
+:: Set Apps to Power Saving and Low Priority.
+for /L %%i in (0, 1, 19) do (
+    set "currentPath=!apps[%%i]!"
+    if exist "!currentPath!" (
+        for %%a in (!currentPath!) do set "exeName=%%~nxa"
+        echo Adding !exeName! to Power Saving Mode and Low Priority.
+        reg add "%regKeyGP%" /v "!currentPath!" /t REG_SZ /d "GpuPreference=1" /f >nul 2>&1
+        reg add "%regKeyPR%\!exeName!\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f >nul 2>&1 
+    ) else (
+        echo !currentPath! does not exist >nul 2>&1
+    )
+)
+
+endlocal
+echo Graphics Preferences, Priority and FSO applied successfully.
+timeout 1 > nul
+
+cls
+color D
+echo (c6erti) Auto Setting Windows Processes Priority... 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ApplicationFrameHost.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "4" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "3" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dllhost.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dwm.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "3" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\fontdrvhost.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\lsass.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\lsass.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "0" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\lsass.exe\PerfOptions" /v "PagePriority" /t REG_DWORD /d "1" /f  
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchIndexer.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SearchIndexer.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "0" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\services.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sihost.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\smss.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\StartMenu.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\svchost.exe" /v "MinimumStackCommitInBytes" /t REG_DWORD /d "32768" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\svchost.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f  
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\svchost.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "0" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TrustedInstaller.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TrustedInstaller.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "0" /f  
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\wininit.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\winlogon.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WMIADAP.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WmiPrvSE.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\wuauclt.exe\PerfOptions" /v "CpuPriorityClass" /t REG_DWORD /d "1" /f 
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\wuauclt.exe\PerfOptions" /v "IoPriority" /t REG_DWORD /d "0" /f
+echo Windows Processes Priority appiled successfully.
+timeout 1 > nul 
+
+:: (c6erti) Mircosoft Apps Remover.
+cls
+color 9
+echo.                                          (Removing Microsoft Apps/Bloatware)
+echo.                                       This cycles through over 150 lines of code
+echo.                                             and will likely take 20-25 minutes.
+echo. 
+chcp 437 >nul
+powershell -Command "Write-Host 'Reminder, will take a while' -ForegroundColor White -BackgroundColor Red"  
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *3DBuilder* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Cortana* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Getstarted* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsAlarms* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsCamera* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *bing* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *MicrosoftOfficeHub* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *OneNote* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *photos* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *SkypeApp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *solit* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsSoundRecorder* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *windowscommunicationsapps* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *zune* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsCalculator* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *WindowsMaps* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Sway* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *CommsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *ConnectivityStore* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsStore* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.BingSports* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.BingNews* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.BingFinance* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.HEIFImageExtension* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.VP9VideoExtensions* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WebMediaExtensions* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WebpImageExtension* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Office.OneNote* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Office.Sway* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsStore* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.StorePurchaseApp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.XboxApp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Xbox.TCUI* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.XboxGamingOverlay* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.XboxGameOverlay* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.XboxIdentityProvider* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.XboxSpeechToTextOverlay* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Windows.Phone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.CommsPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.YourPhone* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Appconnector* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Getstarted* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.MinecraftUWP* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Wallet* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.OneConnect* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *microsoft.windowscommunicationsapps* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.ZuneMusic* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.ZuneVideo* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsCalculator* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.SkypeApp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.GroupMe10* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsSoundRecorder* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *king.com.CandyCrushSaga* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *king.com.CandyCrushSodaSaga* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *ShazamEntertainmentLtd.Shazam* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Flipboard.Flipboard* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *9E2F88E3.Twitter* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *ClearChannelRadioDigital.iHeartRadio* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *D5EA27B7.Duolingo-LearnLanguagesforFree* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *AdobeSystemsIncorporated.AdobePhotoshopExpress* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *PandoraMediaInc.29680B314EFC2* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *46928bounde.EclipseManager* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *ActiproSoftwareLLC.562882FEEB491* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *SpotifyAB.SpotifyMusic* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Advertising.Xaml* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.RemoteDesktop* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.NetworkSpeedTest* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Todos* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Windows.Search* | Remove-AppxPackage" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Print3D* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Microsoft3DViewer* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Windows.Cortana* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *windowsterminal* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.ScreenSketch* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.PowerAutomateDesktop* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.People* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.MSPaint* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.Office.Outlook* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.WindowsNotepad* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.OneDrive* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.ParentalControls* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.549981C3F5F10* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Clipchamp* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *RealtekSemiconductorCorp.RealtekAudioControl* | Remove-AppxPackage" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.RemoteDesktop* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *Microsoft.RemoteDesktop_10.2.1810.0_x64__8wekyb3d8bbwe* | Remove-AppxPackage" >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *HPAudioControl* | Remove-AppxPackage" >nul 2>&1
+taskkill /F /IM Teams.exe >nul 2>&1
+taskkill /F /IM msteams.exe >nul 2>&1
+taskkill /F /IM msteams_autostarter.exe >nul 2>&1
+taskkill /F /IM msteamsupdate.exe >nul 2>&1
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *MicrosoftTeams* | Remove-AppxPackage"
+PowerShell -ExecutionPolicy Unrestricted -Command "Get-AppxPackage *MicrosoftTeams_24102.2309.2851.4917_x64__8wekyb3d8bbwe* | Remove-AppxPackage"
+echo Mircosoft Apps and Bloatware deleted successfully.
+timeout 1 > nul
+
+::  Gpu Tweaks
+cls
+color D
+chcp 65001 >nul 2>&1
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                                                ██████╗ ██████╗ ██╗   ██╗             
+echo.                                               ██╔════╝ ██╔══██╗██║   ██║             
+echo.                                               ██║  ███╗██████╔╝██║   ██║             
+echo.                                               ██║   ██║██╔═══╝ ██║   ██║             
+echo.                                               ╚██████╔╝██║     ╚██████╔╝             
+echo.                                                ╚═════╝ ╚═╝      ╚═════╝              
+echo.                                                   
+echo.                                  ████████╗██╗    ██╗███████╗ █████╗ ██╗  ██╗███████╗
+echo.                                  ╚══██╔══╝██║    ██║██╔════╝██╔══██╗██║ ██╔╝██╔════╝
+echo.                                     ██║   ██║ █╗ ██║█████╗  ███████║█████╔╝ ███████╗
+echo.                                     ██║   ██║███╗██║██╔══╝  ██╔══██║██╔═██╗ ╚════██║
+echo.                                     ██║   ╚███╔███╔╝███████╗██║  ██║██║  ██╗███████║
+echo.                                     ╚═╝    ╚══╝╚══╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+echo.
+echo.                                  ╔════════════════════════════════════════════════════╗
+echo.                                  ║             Please select your GPU Model...        ║       
+echo.                                  ╚════════════════════════════════════════════════════╝
+echo.
+echo.
+echo.
+echo.
+echo Choose an option:
+echo 1. Nvidia  
+echo 2. AMD 
+echo 3. Intel
+echo 4. Skip!
+set /p option="Enter option number: "
+echo.
+if "%option%"=="1" (
+echo Running Nvidia Tweaks.
+timeout 2 > nul
+goto :Nivida
+) else if "%option%"=="2" (
+echo Running AMD Tweaks.
+timeout 2 > nul
+goto :AMD
+) else if "%option%"=="3" (
+echo Running Intel Tweaks.
+timeout 2 > nul
+goto :Intel
+) else if "%option%"=="4" (
+echo Skipping!
+goto :DoneSkipGpu 
+timeout 1 > nul   
+) 
+
+:Nivida
+cls
+:: Nvidia Power Settings
+echo Disabling Power Settings...
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{7B7A1E6E-0A7E-11EF-946A-806E6F6E6963}\0000" /v "PowerMizerEnable" /t REG_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{7B7A1E6E-0A7E-11EF-946A-806E6F6E6963}\0000" /v "PowerMizerLevel" /t REG_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{7B7A1E6E-0A7E-11EF-946A-806E6F6E6963}\0000" /v "PowerMizerLevelAC" /t REG_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{7B7A1E6E-0A7E-11EF-946A-806E6F6E6963}\0000" /v "PerfLevelSrc" /t REG_DWORD /d "8738" /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\Global\NVTweak" /v "DisplayPowerSaving" /t Reg_DWORD /d "0" /f 
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}\0001\PowerSettings" /v IdlePowerState /t REG_BINARY /d 00000000 /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Class{4d36e96c-e325-11ce-bfc1-08002be10318}\0000" /v "DisableDynamicPstate" /t REG_DWORD /d "1" /f
+timeout 1 > nul
+        
+        
+cls
+:: Nvidia Telemetry
+echo Disabling Nvidia Telemetry...
+REG ADD "HKLM\SOFTWARE\NVIDIA Corporation\NvControlPanel2\Client" /v "OptInOrOutPreference" /t REG_DWORD /d 0 /f 
+REG ADD "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID44231" /t REG_DWORD /d 0 /f 
+REG ADD "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID64640" /t REG_DWORD /d 0 /f 
+REG ADD "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID66610" /t REG_DWORD /d 0 /f 
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableRID61684" /t REG_DWORD /d "1" /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\Global\Startup" /v "SendTelemetryData" /t REG_DWORD /d 0 /f
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "NvBackend" /f >nul 2>&1
+timeout 1 > nul
+        
+cls
+:: Nvidia Tasks
+echo Disabling Nvidia Tasks...
+echo The operation completed successfully.
+echo The operation completed successfully.
+echo The operation completed successfully.
+echo The operation completed successfully.
+echo The operation completed successfully.
+echo The operation completed successfully.
+schtasks /change /disable /tn "NvTmRep_CrashReport1_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1 
+schtasks /change /disable /tn "NvTmRep_CrashReport2_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1
+schtasks /change /disable /tn "NvTmRep_CrashReport3_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1
+schtasks /change /disable /tn "NvTmRep_CrashReport4_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1 
+schtasks /change /disable /tn "NVIDIA GeForce Experience SelfUpdate_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1  
+schtasks /change /disable /tn "NvDriverUpdateCheckDaily_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1
+schtasks /change /disable /tn "NvBatteryBoostCheckOnLogon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1
+schtasks /change /disable /tn "NvTmMon_{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}" >nul 2>&1
+timeout 1 > nul
+
+cls
+:: Mpo and HDCP Tweaks
+echo Disabling HDCP and MPO...
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "RMHdcpKeyGlobZero" /t REG_DWORD /d 1 /f
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d 5 /f
+timeout 1 > nul
+
+cls
+:: interrupt policies
+echo Setting interrupt policies...
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%u IN ('wmic path Win32_USBController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%v IN ('wmic path Win32_VideoController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%n IN ('wmic path Win32_NetworkAdapter get PNPDeviceID^| findstr /l "PCI\VEN_"') do ( 
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d 30 >nul 2>&1
+)
+timeout 1 > nul
+
+cls               
+:NvidiaTelemetryClient
+echo Do you want to delete Nvidia Telemetry Client? (Y/N)
+echo.
+chcp 437 >nul
+powershell -Command "Write-Host 'Breaks clipping with Nvidia Softwares.' -ForegroundColor White -BackgroundColor Red"
+echo.
+set /p option="Enter option number: "
+if /i "%option%"=="Y" (
+echo.
+echo Deleting Nvidia Telemetry Client...
+rundll32 "%PROGRAMFILES%\NVIDIA Corporation\Installer2\InstallerCore\NVI2.DLL",UninstallPackage NvTelemetry
+rundll32 "%PROGRAMFILES%\NVIDIA Corporation\Installer2\InstallerCore\NVI2.DLL",UninstallPackage NvTelemetryContainer
+timeout 1 > nul
+) else if /i "%option%"=="N" (
+echo.
+echo Not Deleting Nvidia Telemetry Client...
+echo I recommend OBS Replay Buffer over Nvidia Shadowplay!
+timeout 3 > nul
+) else (
+cls
+chcp 437 >nul
+powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+timeout 2 > nul
+goto :NvidiaTelemetryClient
+)
+
+cls
+echo Running Nvidia Profile Inspector with imported optimized settings...
+set "fileURL=https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/2.4.0.4/nvidiaProfileInspector.zip"
+set "fileName=nvidiaProfileInspector.zip"
+set "fileURL2=https://raw.githubusercontent.com/QuakedK/Oneclick/refs/heads/main/Downloads/QuakedOptimizedNVProflie.nip"
+set "fileName2=Quaked Optimized NV Proflie.nip"
+mkdir "C:\Oneclick Tools\Nvidia" >nul 2>&1
+set "extractFolder=C:\Oneclick Tools\Nvidia\nvidiaProfileInspector"
+set "downloadsFolder=C:\Oneclick Tools\Nvidia"
+chcp 65001 >nul 2>&1
+echo.
+echo ╔═════════════════════════════╗
+echo ║                             ║
+echo ║    Downloading resources    ║
+echo ║                             ║
+echo ╚═════════════════════════════╝
+if not exist "%downloadsFolder%\%fileName%" (
+curl -s -L "%fileURL%" -o "%downloadsFolder%\%fileName%"
+curl -s -L "%fileURL2%" -o "%downloadsFolder%\%fileName2%"
+timeout 1 > nul
+mkdir "%extractFolder%" >nul 2>&1
+pushd "%extractFolder%" >nul 2>&1
+chcp 437 >nul
+powershell -Command "Expand-Archive -Path '%downloadsFolder%\%fileName%' -DestinationPath '%extractFolder%' -Force" >nul 2>&1
+popd >nul 2>&1
+del /q "C:\Oneclick Tools\Nvidia\nvidiaProfileInspector.zip" >nul 2>&1
+echo Download successful!
+echo Importing configuration file...
+"%extractFolder%\nvidiaProfileInspector.exe" -importProfile "%downloadsFolder%\%fileName2%"
+echo.
+pause
+goto :DoneSkipGpu 
+) else (
+    echo "%fileName%" already exists in "%downloadsFolder%". >nul 2>&1
+)
+
+:AMD
+cls
+echo Disabling Amd Bloat...
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "3D_Refresh_Rate_Override_DEF" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "3to2Pulldown_NA" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AAF_NA" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "Adaptive De-interlacing" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AllowRSOverlay" /t Reg_SZ /d "false" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AllowSkins" /t Reg_SZ /d "false" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AllowSnapshot" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AllowSubscription" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AntiAlias_NA" /t Reg_SZ /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AreaAniso_NA" /t Reg_SZ /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "ASTT_NA" /t Reg_SZ /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "AutoColorDepthReduction_NA" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableSAMUPowerGating" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableUVDPowerGatingDynamic" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableVCEPowerGating" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "EnableAspmL0s" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "EnableAspmL1" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "EnableUlps" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "EnableUlps_NA" /t Reg_SZ /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "KMD_DeLagEnabled" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "KMD_FRTEnabled" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableDMACopy" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableBlockWrite" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "StutterMode" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "EnableUlps" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "PP_SclkDeepSleepDisable" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "PP_ThermalAutoThrottlingEnable" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "DisableDrmdmaPowerGating" /t Reg_DWORD /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000" /v "KMD_EnableComputePreemption" /t Reg_DWORD /d "0" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /t Reg_SZ /d "1" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "Main3D" /t Reg_BINARY /d "3100" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "FlipQueueSize" /t Reg_BINARY /d "3100" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "ShaderCache" /t Reg_BINARY /d "3200" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "Tessellation_OPTION" /t Reg_BINARY /d "3200" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "Tessellation" /t Reg_BINARY /d "3100" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "VSyncControl" /t Reg_BINARY /d "3000" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\UMD" /v "TFQ" /t Reg_BINARY /d "3200" /f 
+REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Video\{B784559B-672D-11EE-A4CA-E612636C81AA}\0000\DAL2_DATA__2_0\DisplayPath_4\EDID_D109_78E9\Option" /v "ProtectionControl" /t REG_BINARY /d "0100000001000000" /f 
+timeout 1 > nul 
+ 
+cls
+:: interrupt policies
+echo Setting interrupt policies...
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%u IN ('wmic path Win32_USBController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%v IN ('wmic path Win32_VideoController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%n IN ('wmic path Win32_NetworkAdapter get PNPDeviceID^| findstr /l "PCI\VEN_"') do ( 
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d 30 >nul 2>&1
+)
+goto :DoneSkipGpu
+
+:Intel
+cls
+echo Disabling Intel Gpu Bloat...
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "Disable_OverlayDSQualityEnhancement" /t REG_DWORD /d "1" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "IncreaseFixedSegment" /t REG_DWORD /d "1" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "AdaptiveVsyncEnable" /t REG_DWORD /d "0" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "DisablePFonDP" /t REG_DWORD /d "1" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "EnableCompensationForDVI" /t REG_DWORD /d "1" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "NoFastLinkTrainingForeDP" /t REG_DWORD /d "0" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "ACPowerPolicyVersion" /t REG_DWORD /d "16898" /f
+REG ADD "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "DCPowerPolicyVersion" /t REG_DWORD /d "16642" /f
+REG ADD "HKLM\Software\Intel\GMM" /v "DedicatedSegmentSize" /t REG_DWORD /d "512" /f
+timeout 1 > nul
+
+cls
+:: interrupt policies
+echo Setting interrupt policies...
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%g IN ('wmic path win32_VideoController get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%g\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG ADD "HKLM\SYSTEM\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\MessageSignaledInterruptProperties" /v "MSISupported" /t REG_DWORD /d "1" /f 
+FOR /f %%i IN ('wmic path Win32_NetworkAdapter get PNPDeviceID ^| findstr /L "VEN_"') do REG DELETE "HKLM\System\CurrentControlSet\Enum\%%i\Device Parameters\Interrupt Management\Affinity Policy" /v "DevicePriority" /f >nul 2>&1
+FOR /f %%u IN ('wmic path Win32_USBController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%u\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%v IN ('wmic path Win32_VideoController get PNPDeviceID^| findstr /l "PCI\VEN_"') do (
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%v\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d C0 >nul 2>&1
+)
+FOR /f %%n IN ('wmic path Win32_NetworkAdapter get PNPDeviceID^| findstr /l "PCI\VEN_"') do ( 
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v DevicePolicy /t REG_DWORD /d 4 >nul 2>&1
+    REG ADD "HKLM\System\CurrentControlSet\Enum\%%n\Device Parameters\Interrupt Management\Affinity Policy" /f /v AssignmentSetOverride /t REG_BINARY /d 30 >nul 2>&1
+)
+goto :DoneSkipGpu
+
+:: (c6erti) Latency Tweaks.
+:DoneSkipGpu
+cls
+color 9
+chcp 65001 >nul 2>&1
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                                 ██╗      █████╗ ████████╗███████╗███╗   ██╗ ██████╗██╗   ██╗       
+echo.                                 ██║     ██╔══██╗╚══██╔══╝██╔════╝████╗  ██║██╔════╝╚██╗ ██╔╝       
+echo.                                 ██║     ███████║   ██║   █████╗  ██╔██╗ ██║██║      ╚████╔╝        
+echo.                                 ██║     ██╔══██║   ██║   ██╔══╝  ██║╚██╗██║██║       ╚██╔╝         
+echo.                                 ███████╗██║  ██║   ██║   ███████╗██║ ╚████║╚██████╗   ██║          
+echo.                                 ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═══╝ ╚═════╝   ╚═╝          
+echo. 
+echo.                                  ╔════════════════════════════════════════════════════╗
+echo.                                  ║              Running latency Changes..             ║       
+echo.                                  ╚════════════════════════════════════════════════════╝
+echo.                                                                          
+timeout 1 > nul  
+
+cls
+color D
+chcp 437 >nul
+echo (c6erti) Applying System Clock Settings...
+bcdedit /deletevalue useplatformclock >nul 2>&1
+bcdedit /set useplatformtick no
+bcdedit /set disabledynamictick yes
+echo System Clock Settings appiled successfully.
+timeout 1 > nul
+
+:SettingPrioritySeparation
+cls
+color 9
+echo (c6erti) Setting Priority Separation... 
+echo.
+chcp 65001 >nul 2>&1
+echo ╔═════════════════════════════╗
+echo ║       42 Recommended!       ║
+echo ╚═════════════════════════════╝
+echo.
+echo Choose an option:
+echo 1. 20 Decimal ║ 14 Hexadecimal
+echo 2. 22 Decimal ║ 16 Hexadecimal
+echo 3. 24 Decimal ║ 18 Hexadecimal
+echo 4. 26 Decimal ║ 1A Hexadecimal
+echo 5. 36 Decimal ║ 24 Hexadecimal
+echo 6. 38 Decimal ║ 26 Hexadecimal
+echo 7. 42 Decimal ║ 2A Hexadecimal
+echo 8. Skip!
+chcp 437 >nul
+set /p option="Enter option number: "
+echo.
+if "%option%"=="1" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x00000014 /f
+echo 20 Decimal aka 14 Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="2" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x00000016 /f
+echo 22 Decimal aka 16 Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="3" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x00000018 /f
+echo 24 Decimal aka 18 Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="4" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x1a /f
+echo 26 Decimal aka 1A Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="5" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x00000024 /f
+echo 36 Decimal aka 24 Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="6" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x00000026 /f
+echo 38 Decimal aka 26 Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul
+) else if "%option%"=="7" (
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x2a /f
+echo 42 Decimal aka 2A Hexadecimal, Priority Separation appiled successfully.
+timeout 1 > nul 
+) else if "%option%"=="8" (
+echo Skipping Priority Separation Selection!
+timeout 1 > nul  
+goto :SkippingPriority 
+) else (
+cls
+chcp 437 >nul
+powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+timeout 1 > nul
+goto :SettingPrioritySeparation
+)
+
+:SkippingPriority
+cls
+color D
+echo (c6erti) Installing Visual C++ 2015-2022 Redistributable...
+echo.
+:: Check if Visual C++ 2015-2022 Redistributable (x64) is installed
+reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" > nul 2>&1
+if %errorlevel% == 0 (
+    echo Visual C++ 2015-2022 Redistributable is installed
+    timeout 1 > nul
+    goto :WinVerD
+) else (
+    echo Visual C++ 2015-2022 Redistributable is not installed
+    timeout 1 > nul
+    goto :VCRuntime
+)
+pause
+
+:VCRuntime
+:: Download VC++ Redistributable
+set "fileURL=https://aka.ms/vs/17/release/vc_redist.x64.exe"
+set "fileName=VC_redist.x64.exe"
+mkdir "C:\Oneclick Tools\VC Redist" >nul 2>&1
+set "downloadsFolder=C:\Oneclick Tools\VC Redist"
+chcp 65001 >nul 2>&1
+echo.
+echo ╔═════════════════════════════╗
+echo ║                             ║
+echo ║    Downloading resources    ║
+echo ║                             ║
+echo ╚═════════════════════════════╝
+chcp 437 >nul
+curl -s -L "%fileURL%" -o "%downloadsFolder%\%fileName%"
+
+:: Check if the file was downloaded successfully
+if exist "%downloadsFolder%\%fileName%" (
+    echo File downloaded successfully.
+    echo.
+    echo Starting Visual C++ 2015-2022 Redistributable...
+    start "" "%downloadsFolder%\%fileName%"
+    echo.
+    echo Please install the redistributable package to continue.
+    echo Once installed, click "Install" to proceed or close to cancel...
+    echo.
+    pause
+) else (
+    echo Failed to download the file.
+    timeout 1 > nul
+    goto :VCRuntime
+)
+ 
+:WinVerD
+:: (c6erti) Check for Windows 10 versions 2004 and above, excluding Windows 11.
+setlocal enabledelayedexpansion
+
+:: Get the current Windows version and build number.
+for /f "tokens=3" %%A in ('reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /v "CurrentBuild" 2^>nul ^| findstr "REG_SZ"') do (
+    set "build_num=%%A"
+)
+
+:: Check if Windows 11 is detected using the build number.
+:: Windows 11 starts at build number 22000 and above
+if !build_num! GEQ 22000 (
+    goto :TimerRes11
+)
+
+:: If Windows 10 version is above 2004 or 20H2 using the build number.
+if !build_num! GEQ 19042 (
+    echo Windows 10 version above 2004 detected. >nul 2>&1
+    goto :TimerRes10
+) else (
+    echo Windows 10 version 2004 or earlier detected. >nul 2>&1
+    goto :TimerRes11
+)
+
+endlocal
+
+:TimerRes10
+cls
+color 9
+echo (Quaked) Setting up Timer Resolution...  
+echo.
+chcp 65001 >nul 2>&1
+echo ╔═════════════════════════════╗
+echo ║     0.504ms Recommended!     ║
+echo ╚═════════════════════════════╝
+chcp 437 >nul
+echo. 
+echo Choose an option:
+echo 1. Timer Res 0.500ms  
+echo 2. Timer Res 0.502ms  
+echo 3. Timer Res 0.504ms
+echo 4. Timer Res 0.507ms
+echo 5. Skip!                                                                   
+set /p option="Enter option number: "
+if "%option%"=="1" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5000 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5000 --no-console
+  echo Timer Res is now active in the background!
+  echo. 
+  echo Adding Win 10 TimerRes Fix/Dpc Checker to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DPC Checker" /t REG_SZ /d "C:\Oneclick Tools\DPC Checker\dpclat.exe" /f
+  echo.
+  echo Starting Dpc Checker... 
+  powershell -Command "Write-Host 'Click *Stop* and then *Minimize* everytime you restart your pc.' -ForegroundColor White -BackgroundColor Red"
+  start "" "C:\Oneclick Tools\DPC Checker\dpclat.exe"
+  echo DPC Checker is now active in the background!
+  echo.
+  pause
+  goto :SkippingTimer
+) else if "%option%"=="2" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5020 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5020 --no-console
+  echo Timer Res is now active in the background!
+  echo. 
+  echo Adding Win 10 TimerRes Fix/Dpc Checker to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DPC Checker" /t REG_SZ /d "C:\Oneclick Tools\DPC Checker\dpclat.exe" /f
+  echo.
+  echo Starting Dpc Checker... 
+  powershell -Command "Write-Host 'Click *Stop* and then *Minimize* everytime you restart your pc.' -ForegroundColor White -BackgroundColor Red"
+  start "" "C:\Oneclick Tools\DPC Checker\dpclat.exe"
+  echo DPC Checker is now active in the background!
+  echo.
+  pause
+  goto :SkippingTimer
+) else if "%option%"=="3" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5040 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5040 --no-console
+  echo Timer Res is now active in the background!
+  echo. 
+  echo Adding Win 10 TimerRes Fix/Dpc Checker to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DPC Checker" /t REG_SZ /d "C:\Oneclick Tools\DPC Checker\dpclat.exe" /f
+  echo.
+  echo Starting Dpc Checker... 
+  powershell -Command "Write-Host 'Click *Stop* and then *Minimize* everytime you restart your pc.' -ForegroundColor White -BackgroundColor Red"
+  start "" "C:\Oneclick Tools\DPC Checker\dpclat.exe"
+  echo DPC Checker is now active in the background!
+  echo.
+  pause
+  goto :SkippingTimer
+) else if "%option%"=="4" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5070 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5070 --no-console
+  echo Timer Res is now active in the background!
+  echo. 
+  echo Adding Win 10 TimerRes Fix/Dpc Checker to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "DPC Checker" /t REG_SZ /d "C:\Oneclick Tools\DPC Checker\dpclat.exe" /f
+  echo.
+  echo Starting Dpc Checker... 
+  powershell -Command "Write-Host 'Click *Stop* and then *Minimize* everytime you restart your pc.' -ForegroundColor White -BackgroundColor Red"
+  start "" "C:\Oneclick Tools\DPC Checker\dpclat.exe"
+  echo DPC Checker is now active in the background!
+  echo.
+  pause
+  goto :SkippingTimer
+) else if "%option%"=="5" (
+  echo.
+  echo Skipping Timer Resolution Selection!
+  timeout 1 > nul 
+  goto :SkippingTimer
+) else (
+cls
+chcp 437 >nul
+powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+timeout 1 > nul
+goto :TimerRes10
+)
+
+:TimerRes11
+rd /s /q "C:\Oneclick Tools\DPC Checker" >nul 2>&1
+cls
+color 9
+echo (c6erti) Setting up Timer Resolution... 
+echo.
+chcp 65001 >nul 2>&1
+echo ╔═════════════════════════════╗
+echo ║     0.504ms Recommended!     ║
+echo ╚═════════════════════════════╝
+chcp 437 >nul
+echo. 
+echo Choose an option:
+echo 1. Timer Res 0.500ms  
+echo 2. Timer Res 0.502ms  
+echo 3. Timer Res 0.504ms
+echo 4. Timer Res 0.507ms
+echo 5. Skip!                                                                   
+set /p option="Enter option number: "
+if "%option%"=="1" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5000 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5000 --no-console
+  echo Timer Res is now active in the background!
+  timeout 1 > nul
+) else if "%option%"=="2" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5020 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5020 --no-console
+  echo Timer Res is now active in the background!
+  timeout 1 > nul 
+) else if "%option%"=="3" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5040 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5040 --no-console
+  echo Timer Res is now active in the background!
+  timeout 1 > nul 
+) else if "%option%"=="4" (
+  echo.
+  echo Adding TimerResolution to startup!
+  Reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "TimerResolution" /t REG_SZ /d "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe --resolution 5070 --no-console" /f
+  echo.
+  echo Starting TimerResolution... 
+  start "" "C:\Oneclick Tools\Timer Resolution\SetTimerResolution.exe" --resolution 5070 --no-console
+  echo Timer Res is now active in the background!
+  timeout 1 > nul 
+) else if "%option%"=="5" (
+  echo.
+  echo Skipping Timer Resolution Selection!
+  timeout 1 > nul 
+  goto :SkippingTimer
+) else (
+cls
+chcp 437 >nul
+powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+timeout 1 > nul
+goto :TimerRes11
+)
+
+:SkippingTimer
+cls
+color D
+echo Do you want to Run (Khorive, Inspired) NDIS Tweaks?
+echo.
+chcp 437 >nul
+powershell -Command "Write-Host '(Not Recommended) Can Network issues, but improve latency on the NDIS driver.' -ForegroundColor White -BackgroundColor Red"
+echo.
+set /p choice=Enter (Y/N): 
+if /i "%choice%"=="Y" (
+    timeout 1 > nul
+    cls
+    goto :NDIS
+) else if /i "%choice%"=="N" ( 
+    timeout 1 > nul
+    cls
+    goto :DMT
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+    timeout 1 > nul
+    goto :SkippingTimer
+)
+
+:NDIS
+cls
+setlocal
+echo Detecting Network Adapter.
+
+for /f "skip=1 delims=" %%a in ('wmic nic where "NetConnectionStatus=2" get NetConnectionID /value 2^>nul') do (
+    for /f "tokens=2 delims==" %%b in ("%%a") do (
+        set "adapter_name=%%b"
+    )
+)
+
+if defined adapter_name (
+    echo Your current network adapter is: %adapter_name%
+
+    echo Enabling Interrupt Moderation and setting Interrupt Moderation Rate to medium.
+    powershell -Command "Get-NetAdapterAdvancedProperty -Name \"%adapter_name%\" -DisplayName 'Interrupt Moderation' | Set-NetAdapterAdvancedProperty -RegistryValue 1" >nul 2>&1
+    powershell -Command "Get-NetAdapterAdvancedProperty -Name \"%adapter_name%\" -DisplayName 'Interrupt Moderation Rate' | Set-NetAdapterAdvancedProperty -RegistryValue 125" >nul 2>&1
+
+    echo Setting NetworkThrottlingIndex to 10.
+    reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v "NetworkThrottlingIndex" /t REG_DWORD /d 10 /f
+    echo NDIS Tweaks appiled successfully.
+    timeout 1 > nul
+) else (
+    echo Unable to detect your current network adapter.
+    echo Skipping.
+    timeout 1 > nul
+)
+endlocal
+
+:DMT
+cls
+color D
+echo Do you want to Run (Calypto, Inspired) Device Manager Tweaks?
+echo.
+chcp 437 >nul
+powershell -Command "Write-Host '(Not Recommended) Can cause bluescreens and other issues, so be cautious.' -ForegroundColor White -BackgroundColor Red"
+echo.
+set /p choice=Enter (Y/N): 
+if /i "%choice%"=="Y" (
+    timeout 1 > nul
+    cls
+    goto :DeviceManagerTweaks
+) else if /i "%choice%"=="N" ( 
+    timeout 1 > nul
+    cls
+    goto :SkipDeviceManager
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+    timeout 1 > nul
+    goto :DMT
+)
+
+:DeviceManagerTweaks
+echo (c6erti) Disabling unnecessary devices in Device Manager...
+setlocal enabledelayedexpansion
+
+:: Device Names.
+set "Device[0]=Microsoft GS Wavetable Synth"
+set "Device[1]=NDIS Virtual Network Adapter Enumerator"
+set "Device[2]=Composite Bus Enumerator"
+set "Device[3]=Microsoft Virtual Drive Enumerator"
+set "Device[4]=Remote Desktop Device Redirector Bus"
+set "Device[5]=Mircosoft RRAS Root Enumerator"
+set "Device[6]=Mircosoft Print to PDF"
+set "Device[7]=Root Print Queue"
+set "Device[8]=Intel(R) Management Engine Interface #1"
+set "Device[9]=Intel(R) SPI (Flash) Controller - 7AA4"
+set "Device[10]=Intel(R) SMBus - 7AA3"
+set "Device[11]=UMBus Root Bus Enumerator"
+set "Device[12]=Microsoft Hypervisor Service"
+set "Device[13]=Microsoft Device Association Root Enumerator"
+set "Device[14]=Microsoft Hyper-V Vitualization Infrastucture Driver"
+set "Device[15]=Bluetooth Device (RFCOMM Protocol TDI)"
+set "Device[16]=Intel(R) Wireless Bluetooth(R)"
+set "Device[17]=Microsoft Bluetooth Enumerator"
+set "Device[18]=Microsoft Bluetooth LE Enumerator"
+set "Device[19]=Bluetooth Device (Personal Area Network)"
+set "Device[20]=NVIDIA High Definition Audio"
+
+:: Loop through all devices and disable them by InstanceId
+for /L %%i in (0,1,20) do (
+    for /f "usebackq tokens=*" %%A in (`powershell -command "Get-PnpDevice -FriendlyName '!Device[%%i]!' | Select-Object -ExpandProperty InstanceId"`) do (
+        set "instanceID=%%A"
+    )
+    if defined instanceID (
+        echo Disabling device: !Device[%%i]! with InstanceId: !instanceID!
+        pnputil /disable-device "!instanceID!" >nul 2>&1
+    )
+)
+endlocal
+timeout 1 > nul
+
+:DisableWifiDevices
+cls
+echo Do you want to Disable Wifi Devices?
+echo.
+chcp 437 >nul
+powershell -Command "Write-Host 'It Will Break Wifi' -ForegroundColor White -BackgroundColor Red"
+echo.
+echo Are you sure? (Y/N)
+set /p option="Enter option number: "
+if /i "%option%"=="Y" (
+    echo.
+    echo Now Disabling Wifi Devices...
+    timeout 1 > nul
+    cls
+    goto :WifiDevice
+) else if /i "%option%"=="N" (
+    echo.
+    echo Skipping Wifi Device Manager Tweaks...
+    timeout 1 > nul
+    cls
+    goto :SkipDeviceManager
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+    timeout 1 > nul
+    goto :DisableWifiDevices
+)
+
+:WifiDevice
+echo (c6erti) Disabling Wifi Devices!
+setlocal enabledelayedexpansion
+
+:: Device Names.
+set "Device[0]=Intel(R) Wi-Fi"
+set "Device[1]=WAN Miniport (IKEv2)"
+set "Device[2]=WAN Miniport (IP)"
+set "Device[3]=WAN Miniport (IPv6)"
+set "Device[4]=WAN Miniport (L2TP)"
+set "Device[5]=WAN Miniport (Network Monitor)"
+set "Device[6]=WAN Miniport (PPPOE)"
+set "Device[7]=WAN Miniport (PPTP)"
+set "Device[8]=WAN Miniport (SSTP)"
+
+:: Loop through all devices and disable them by InstanceId
+for /L %%i in (0,1,8) do (
+    for /f "usebackq tokens=*" %%A in (`powershell -command "Get-PnpDevice -FriendlyName '!Device[%%i]!' | Select-Object -ExpandProperty InstanceId"`) do (
+        set "instanceID=%%A"
+    )
+    if defined instanceID (
+        echo Disabling device: !Device[%%i]! with InstanceId: !instanceID!
+        pnputil /disable-device "!instanceID!" >nul 2>&1
+    )
+)
+:SkipDeviceManager
+// ... existing code ...
+echo ║ C6erti's Ultimate Performance ║
+// ... existing code ...
+if "%option%"=="1" (
+// ... existing code ...
+  powercfg -import "C:\Oneclick Tools\Power Plan\C6erti's Ultimate Performance.pow"
+// ... existing code ...
+) else if "%option%"=="2" (
+// ... existing code ...
+  powercfg -import "C:\Oneclick Tools\Power Plan\C6erti's Ultimate Performance Idle Off.pow"
+// ... existing code ...
+)
+// ... existing code ...
+:: Checking if C6erti's Ultimate Performance power plan exists.
+for /f "tokens=2 delims=:(" %%i in ('powercfg /list ^| findstr /C:"C6erti's Ultimate Performance"') do (
+    set plan_guid=%%i
+)
+// ... existing code ...
+:: Checking if C6erti's Ultimate Performance Idle Off power plan exists.
+for /f "tokens=2 delims=:(" %%i in ('powercfg /list ^| findstr /C:"C6erti's Ultimate Performance Idle Off"') do (
+    set idle_off_guid=%%i
+)
+// ... existing code ...
+
+:CheckPower
+cls
+chcp 437 >nul
+powershell -Command "Write-Host 'Opening power plan options to confirm if it imported correctly.' -ForegroundColor White -BackgroundColor Red"
+powercfg.cpl
+echo.
+echo Did the Power Plan import correctly? (Y/N)
+set /p option="Enter option number: "
+if /i "%option%"=="Y" (
+    taskkill /F /FI "WINDOWTITLE eq Power Options" >nul 2>&1
+    goto :EndPower
+) else if /i "%option%"=="N" (
+    echo.
+    echo Please select High Performance!
+    echo.
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Adding power plan fix, could solve the issue.' -ForegroundColor White -BackgroundColor Green"
+    powershell -Command "Write-Host 'Once Oneclick is done, open power plan options and check if it''s there.' -ForegroundColor White -BackgroundColor Green"
+    echo.
+    reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power" /v PlatformAoAcOverride /t REG_DWORD /d 0 /f
+    pause
+    taskkill /F /FI "WINDOWTITLE eq Power Options" >nul 2>&1
+    goto :EndPower
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+    timeout 1 > nul
+    goto :CheckPower
+)
+
+:: (c6erti) Cleanup and Defrag.
+:EndPower
+cls
+color D
+chcp 65001 >nul 2>&1
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                                 ██████╗ ██╗     ███████╗ █████╗ ███╗   ██╗██╗   ██╗██████╗ 
+echo.                                 ██╔════╝██║     ██╔════╝██╔══██╗████╗  ██║██║   ██║██╔══██╗
+echo.                                 ██║     ██║     █████╗  ███████║██╔██╗ ██║██║   ██║██████╔╝
+echo.                                 ██║     ██║     ██╔══╝  ██╔══██║██║╚██╗██║██║   ██║██╔═══╝ 
+echo.                                 ╚██████╗███████╗███████╗██║  ██║██║ ╚████║╚██████╔╝██║     
+echo.                                  ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     
+echo. 
+echo.                                  ╔════════════════════════════════════════════════════╗
+echo.                                  ║    Running File Cleanup, Network/DNS Cleanup...    ║       
+echo.                                  ╚════════════════════════════════════════════════════╝
+echo.
+echo.
+echo.                                                                          
+timeout 1 > nul  
+
+cls
+chcp 437 >nul
+color 9
+echo (c6erti) Running File Cleanup...
+del "%LocalAppData%\Microsoft\Windows\INetCache\." /s /f /q
+del "%temp%" /s /f /q
+del "%AppData%\Discord\Cache\." /s /f /q
+del "%AppData%\Discord\Code Cache\." /s /f /q
+del "%ProgramData%\USOPrivate\UpdateStore" /s /f /q
+del "%ProgramData%\USOShared\Logs" /s /f /q
+del "C:\Windows\System32\SleepStudy" /s /f /q
+rmdir /S /Q "%LocalAppData%\Microsoft\Windows\WebCache"
+rd "%AppData%\Discord\Cache" /s /q
+rd "%AppData%\Discord\Code Cache" /s /q
+del "%WINDIR%\Logs" /s /f /q
+rd /s /q %LocalAppData%\Temp
+Del /S /F /Q %temp%
+Del /S /F /Q %Windir%\Temp
+Del /S /F /Q C:\WINDOWS\Prefetch
+echo File Cleanup completed successfully ...
+timeout 1 > nul
+
+cls
+color D
+echo (Quaked) Running Network Cleanup...
+ipconfig /release
+ipconfig /renew
+arp -d *
+nbtstat -R
+nbtstat -RR
+ipconfig /flushdns
+ipconfig /registerdns >nul 2>&1
+echo Network Cleanup completed successfully ...
+timeout 1 > nul
+
+:: (Quaked) Defrag.
+:Defrag
+cls
+chcp 65001 >nul 2>&1
+color 9
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo. 
+echo. 
+echo.                          ╔══════════════════════════════════════════════════════════════════════╗
+echo.                          ║                         (Defragging Drive)                           ║
+echo.                          ║            cleans and may speed up your hard drive                   ║
+echo.                          ║ But It could take 15-25 mins, if this is your first time defragging. ║
+echo.                          ║       Please only defrag if you have a Hard drive not an SDD.        ║
+echo.                          ╚══════════════════════════════════════════════════════════════════════╝
+echo.
+echo.
+echo.
+echo.
+echo. 
+echo. 
+chcp 437 >nul
+powershell -Command "Write-Host '(Not Recommended) Could take a while.' -ForegroundColor White -BackgroundColor Red"
+echo Do you want to defrag drives?
+set /p choice=Enter (Y/N): 
+if /i "%choice%"=="Y" (
+    echo.
+    echo Running Drive Defragmentation...
+    Defrag C: /o
+    Defrag C: /d
+    echo Drive defragmentation completed successfully.
+    timeout 1 > nul
+) else if /i "%choice%"=="N" (
+    echo.
+    echo Skipping Drive defragmentation.
+    timeout 1 > nul
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose Y or N.' -ForegroundColor White -BackgroundColor Red"
+    timeout 1 > nul
+    goto :Defrag
+)
+
+:Extra
+cls
+color B
+chcp 65001 >nul 2>&1
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.                                     ███████╗██╗  ██╗████████╗██████╗  █████╗ ███████╗
+echo.                                     ██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝
+echo.                                     █████╗   ╚███╔╝    ██║   ██████╔╝███████║███████╗
+echo.                                     ██╔══╝   ██╔██╗    ██║   ██╔══██╗██╔══██║╚════██║
+echo.                                     ███████╗██╔╝ ██╗   ██║   ██║  ██║██║  ██║███████║
+echo.                                     ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+echo.
+echo.                         ╔═════════════════════════════════════════════════════════════════════╗ 
+echo.                         ║                                                                     ║ 
+echo.                         ║           [1] discord                         [2] Wifi Fixer        ║
+echo.                         ║                                                                     ║
+echo.                         ║           [3] COMING SOON..                   [4] COMING SOON..     ║
+echo.                         ║                                                                     ║
+echo.                         ║                                                                     ║
+echo.                         ║                                                                     ║
+echo.                         ║                                                                     ║
+echo.                         ║                                                                     ║
+echo.                         ╚═════════════════════════════════════════════════════════════════════╝
+echo.  
+echo.  
+echo.
+echo ____________________
+set /p option="Enter option number: "
+if "%option%"=="1" (
+    cls
+    echo Coming soon
+    timeout 2 > nul
+    goto :Extra
+) else if "%option%"=="2" (
+    cls
+    echo Coming soon
+    timeout 2 > nul
+    goto :Extra
+) else (
+    cls
+    chcp 437 >nul
+    powershell -Command "Write-Host 'Invalid choice, Please choose 1 or 2.' -ForegroundColor White -BackgroundColor Red"
+    timeout 2 > nul
+    goto :Extra
+)
 )
